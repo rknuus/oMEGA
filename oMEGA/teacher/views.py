@@ -1,5 +1,4 @@
-from django.http import HttpResponse, Http404
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .models import Exam
 
 
@@ -10,8 +9,5 @@ def index(request):
 
 
 def exam(request, exam_id):
-    try:
-        exam = Exam.objects.get(pk=exam_id)
-    except Exam.DoesNotExist:
-        raise Http404('Exam does not exist')
+    exam = get_object_or_404(Exam, pk=exam_id)
     return render(request, 'exams/exam.html', {'exam': exam})

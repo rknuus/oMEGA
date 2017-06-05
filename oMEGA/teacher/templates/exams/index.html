@@ -1,0 +1,10 @@
+<h1>Exams</h1>
+{% if exams %}
+    <ul>
+    {% for exam in exams %}
+        <li><a href="/teacher/{{ exam.id }}/">{{ exam.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No exams are available.</p>
+{% endif %}

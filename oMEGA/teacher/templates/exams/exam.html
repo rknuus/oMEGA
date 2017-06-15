@@ -1,2 +1,4 @@
 <h1>Exam {{ title }}</h1>
-<p>{{ text }}</p>
+{% for question in questions %}
+<p>{{ question }}</p>
+{% endfor %}

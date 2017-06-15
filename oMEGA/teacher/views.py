@@ -11,6 +11,5 @@ def index(request):
 
 def exam(request, exam_id):
     exam = get_object_or_404(Exam, pk=exam_id)
-    title = exam.title
-    text = exam.content.format(**exam.variables)
-    return render(request, 'exams/exam.html', {'title': title, 'text': text})
+    questions = {str(question) for question in exam.question_set.select_related()}
+    return render(request, 'exams/exam.html', {'title': exam.title, 'questions': questions})

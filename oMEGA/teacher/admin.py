@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Exam, Question
 
 
-class QuestionInline(admin.StackedInline):
+class QuestionInline(admin.TabularInline):
     model = Question
     extra = 3
 
